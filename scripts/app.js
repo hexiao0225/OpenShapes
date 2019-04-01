@@ -152,15 +152,15 @@ function createNewImage(type) {
   };
 
   if (type === 'Elephant') {
-    img.src = './images/elephant.svg';
+    img.src = '/images/elephant.svg';
   } else if (type === 'Tree') {
-    img.src = '.images/tree.svg';
+    img.src = 'images/tree.svg';
   } else if (type === 'Sky') {
-    img.src = '.images/sky.svg';
+    img.src = 'images/sky.svg';
   } else if (type === 'Water') {
-    img.src = '.images/water.svg';
+    img.src = 'images/water.svg';
   } else if (type === 'Mountain') {
-    img.src = '.images/mountain.svg';
+    img.src = 'images/mountain.svg';
   }
 }
 
