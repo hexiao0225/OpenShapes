@@ -1,0 +1,33 @@
+body {
+  margin: 0px;
+  padding: 0;
+  overflow: hidden;
+  background-color: #f5f5f5 !important;
+}
+
+/* .konvajs-content {
+  height: 576px;
+  width: 1024px;
+  background: #ededed;
+} */
+
+#drawing-area {
+  width: 80%;
+  max-width: 1200px;
+  text-align: center;
+  display: flex;
+  /* margin-right: 0 !important;
+  margin-left: 0 !important; */
+
+  background: yellow !important;
+}
+#choices {
+  text-align: center;
+  margin-left: 40px !important;
+  background: red;
+  width: 100px;
+}
+
+.step-title {
+  margin-left: 20px;
+}
