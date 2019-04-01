@@ -152,15 +152,15 @@ function createNewImage(type) {
   };
 
   if (type === 'Elephant') {
-    img.src = '/Users/xiaohe/cmu_drawing_app/konva/images/elephant.svg';
+    img.src = './images/elephant.svg';
   } else if (type === 'Tree') {
-    img.src = '/Users/xiaohe/cmu_drawing_app/konva/images/tree.svg';
+    img.src = '.images/tree.svg';
   } else if (type === 'Sky') {
-    img.src = '/Users/xiaohe/cmu_drawing_app/konva/images/sky.svg';
+    img.src = '.images/sky.svg';
   } else if (type === 'Water') {
-    img.src = '/Users/xiaohe/cmu_drawing_app/konva/images/water.svg';
+    img.src = '.images/water.svg';
   } else if (type === 'Mountain') {
-    img.src = '/Users/xiaohe/cmu_drawing_app/konva/images/mountain.svg';
+    img.src = '.images/mountain.svg';
   }
 }
 
