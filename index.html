@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>OpenShapes</title>
+  </head>
+  <body>
+    <div id="drawing-area"></div>
+    <div id="choices">
+      <h2 class="step-title">Step 1: Choose Background</h2>
+      <button
+        type="button"
+        class="btn btn-outline-info"
+        id="Sky"
+        onclick="createNewImage('Sky')"
+      >
+        Sky
+      </button>
+      <button
+        type="button"
+        class="btn btn-outline-info"
+        id="Water"
+        onclick="createNewImage('Water')"
+      >
+        Water
+      </button>
+      <button
+        type="button"
+        class="btn btn-outline-info"
+        id="Mountain"
+        onclick="createNewImage('Mountain')"
+      >
+        Mountain
+      </button>
+      <div>
+        <h2>Step 2: Add objects</h2>
+        <button
+          type="button"
+          class="btn btn-outline-info"
+          id="Elephant"
+          onclick="createNewImage('Elephant')"
+        >
+          Elephant
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-info"
+          id="Tree"
+          onclick="createNewImage('Tree')"
+        >
+          Tree
+        </button>
+      </div>
+      <button id="save">
+        Save as image
+      </button>
+    </div>
+  </body>
+  <script src="./scripts/konva.js"></script>
+  <script src="./scripts/app.js"></script>
+
+  <!-- <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous"
+  />
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"
+  ></script> -->
+</html>
