@@ -68,7 +68,7 @@ function update(activeAnchor) {
     image.height(height);
   }
 
-  group.on('mouseenter', showAnchors);
+  group.on('mouseover', showAnchors);
   group.on('mouseout', hideAnchors);
 }
 
