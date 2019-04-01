@@ -152,7 +152,7 @@ function createNewImage(type) {
   };
 
   if (type === 'Elephant') {
-    img.src = '/images/elephant.svg';
+    img.src = 'images/elephant.svg';
   } else if (type === 'Tree') {
     img.src = 'images/tree.svg';
   } else if (type === 'Sky') {
@@ -161,6 +161,8 @@ function createNewImage(type) {
     img.src = 'images/water.svg';
   } else if (type === 'Mountain') {
     img.src = 'images/mountain.svg';
+  } else if (type === 'Ground') {
+    img.src = 'images/ground.svg';
   }
 }
 
