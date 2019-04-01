@@ -80,9 +80,9 @@ function addAnchor(group, x, y, name) {
     x: x,
     y: y,
     stroke: 'grey',
-    fill: '#ededed',
+    fill: 'transparent',
     strokeWidth: 1,
-    radius: 4,
+    radius: 8,
     name: name,
     draggable: true,
     dragOnTop: false
