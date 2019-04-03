@@ -96,75 +96,16 @@ function addAnchor(group, x, y, name) {
     update(this);
     layer.draw();
   });
-  // anchor.on('dblclick', function() {
-  //   this.remove();
-  //   layer.draw();
-  // });
-  // anchor.on('mousedown touchstart', function() {
-  //   group.draggable(false);
-  //   this.moveToTop();
-  // });
-  // anchor.on('dragend', function() {
-  //   group.draggable(true);
-  //   layer.draw();
-  // });
-  // add hover styling
-  // anchor.on('mouseover', function() {
-  //   var layer = this.getLayer();
-  //   document.body.style.cursor = 'pointer';
-  //   this.stroke('#00bcd4');
-  //   this.fill('#00bcd4');
-  //   this.strokeWidth(1);
-  //   this.radius(4);
-  //   layer.draw();
-  // });
-  // anchor.on('mouseout', function() {
-  //   var layer = this.getLayer();
-  //   document.body.style.cursor = 'default';
-  //   //   this.strokeWidth(2);
-  //   this.stroke('transparent');
-  //   this.fill('transparent');
-  //   layer.draw();
-  // });
 
   group.add(anchor);
 }
 
 function showAnchors() {
-  // var group = image.getParent();
-  // var topLeft = group.get('.topLeft')[0];
-  // var topRight = group.get('.topRight')[0];
-  // var bottomRight = group.get('.bottomRight')[0];
-  // var bottomLeft = group.get('.bottomLeft')[0];
-  // topLeft.stroke('black');
-  // topLeft.fill('transparent');
-  // topRight.stroke('black');
-  // topRight.fill('transparent');
-  // bottomRight.stroke('black');
-  // bottomRight.fill('transparent');
-  // bottomLeft.stroke('black');
-  // bottomLeft.fill('transparent');
-
-  // group.draggable(true);
-  // layer.draw();
   this.find('Circle').show();
   layer.draw();
 }
 
 function hideAnchors() {
-  // var group = image.getParent();
-  // var topLeft = group.get('.topLeft')[0];
-  // var topRight = group.get('.topRight')[0];
-  // var bottomRight = group.get('.bottomRight')[0];
-  // var bottomLeft = group.get('.bottomLeft')[0];
-  // topLeft.stroke('transparent');
-  // topLeft.fill('transparent');
-  // topRight.stroke('transparent');
-  // topRight.fill('transparent');
-  // bottomRight.stroke('transparent');
-  // bottomRight.fill('transparent');
-  // bottomLeft.stroke('transparent');
-  // bottomLeft.fill('transparent');
   this.find('Circle').hide();
   layer.draw();
 }
@@ -210,6 +151,8 @@ function createNewImage(type) {
     img.src = 'images/mountain.svg';
   } else if (type === 'Ground') {
     img.src = 'images/ground.svg';
+  } else if (type === 'Fish') {
+    img.src = 'images/fish.svg';
   }
 }
 
