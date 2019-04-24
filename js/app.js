@@ -74,6 +74,19 @@ function update(activeAnchor) {
 
   group.on('mouseover', showAnchors);
   group.on('mouseout', hideAnchors);
+  // group.on('click tap', () => {
+  //   console.log(this);
+  //   this.removeChild();
+  // });
+  layer.on('click', 'Group', function(evt) {
+    var shape = evt.target;
+    var group = evt.currentTarget;
+    console.log(evt.target);
+
+    // shape.getParent().destroy();
+    shape.destroy();
+    // group.destroy();
+  });
 }
 
 function addAnchor(group, x, y, name) {
@@ -109,6 +122,11 @@ function hideAnchors() {
   this.find('Circle').hide();
   layer.draw();
 }
+
+// function deleteNode() {
+//   console.log(this);
+//   this.destroy();
+// }
 
 //-------------------- New Image -----------------------------
 
