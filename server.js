@@ -17,6 +17,9 @@ function imageMatch(dimRatio){
 }
 
 app.get('/ImageMatch', function(req, res){
+  console.log(req.query.Width)
+  console.log(req.query.Height)
+  console.log(req.query.Width / req.query.Height)
   imageMatch(req.query.Width / req.query.Height);
   res.send("hrllo");
 });

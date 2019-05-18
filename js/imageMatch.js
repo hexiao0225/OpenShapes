@@ -1,6 +1,6 @@
 function passParams(width, height, template){
     $.ajax({
-      url: window.location.host + "/ImageMatch",
+      url: "/ImageMatch",
       type: "get", //send it through get method
       data: {
         Width: width,
