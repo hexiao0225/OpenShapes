@@ -71,7 +71,7 @@ function update(activeAnchor) {
     image.width(width);
     image.height(height);
   }
-
+  passParams(width, height, null);
   group.on('mouseover', showAnchors);
   group.on('mouseout', hideAnchors);
 }
@@ -125,6 +125,8 @@ function createNewImage(type) {
   });
   objectImageGroup.add(objectImage);
   layer.add(objectImageGroup);
+
+  passParams(100, 100, null);
 
   addAnchor(objectImageGroup, 0, 0, 'topLeft');
   addAnchor(objectImageGroup, 100, 0, 'topRight');
