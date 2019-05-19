@@ -270,31 +270,7 @@
                   <h6 class="m-0 font-weight-bold text-primary">
                     Step 2: Add objects
                   </h6>
-                  <div class="button-group">
-                    <button
-                      type="button"
-                      class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
-                      id="Elephant"
-                      onclick="createNewImage('Elephant')"
-                    >
-                      Elephant
-                    </button>
-                    <button
-                      type="button"
-                      class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
-                      id="Fish"
-                      onclick="createNewImage('Fish')"
-                    >
-                      Fish
-                    </button>
-                    <button
-                      type="button"
-                      class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
-                      id="Tree"
-                      onclick="createNewImage('Tree')"
-                    >
-                      Tree
-                    </button>
+                  <div id="vertical-menu">
                   </div>
                 </div>
                 <button class="btn btn-info btn-circle btn-lg" id="save">
@@ -342,4 +318,6 @@
   <script src="./js/konva.js"></script>
   <script src="./js/imageMatch.js"></script>
   <script src="./js/app.js"></script>
+  <script src="./js/templates.js"></script>
+  <script>initMenu()</script>
 </html>

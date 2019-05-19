@@ -2,3 +2,42 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
+#vertical-menu {
+  display:inline-block;
+  margin-top:1em;
+  margin-bottom:1em;
+  margin-left:0.5em;
+  vertical-align:top;
+  width: 200px;
+  height: 200px;
+  border-radius:5px;
+  overflow-y: auto;
+}
+
+#vertical-menu a {
+  text-align: center;
+  background-color: #4e73df;
+  color: white;
+  display: block;
+  padding: 12px;
+  text-decoration: none;
+  -webkit-transition: background-color .15s ease-out;
+  -moz-transition: background-color .15s ease-out;
+  -o-transition: background-color .15s ease-out;
+  transition: background-color .15s ease-out;
+}
+
+#vertical-menu a:hover {
+  background-color: #2e59d9;
+  cursor:pointer;
+  -webkit-transition: background-color .15s ease-out;
+  -moz-transition: background-color .15s ease-out;
+  -o-transition: background-color .15s ease-out;
+  transition: background-color .15s ease-out;
+}
+
+#vertical-menu a.active {
+  background-color: #2e59d9;
+  color: white;
+}
