@@ -20,5 +20,5 @@ function initMenu(){
         var obj = document.createElement("a");
         obj.innerHTML = templates[i].charAt(0).toUpperCase() + templates[i].slice(1);
         $("#vertical-menu").append(obj);
-    }
+    };
 };

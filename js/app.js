@@ -1,6 +1,10 @@
 var width = window.innerWidth;
 var height = window.innerHeight;
 
+var currSelType = null;
+var currSelWidth = null;
+var currSelHeight = null;
+
 var stage = new Konva.Stage({
   stroke: 'grey',
   container: 'drawing-area',
@@ -100,7 +104,7 @@ function addAnchor(group, x, y, name) {
   anchor.on('mouseup', function(){
     var tempGroup = anchor.getParent();
     var image = tempGroup.get('Image')[0];
-    passParams(image.width(), image.height(), null);
+    passParams(image.width(), image.height(), image.type);
   })
 
   group.add(anchor);
@@ -121,18 +125,20 @@ function hideAnchors() {
 function createNewImage(type) {
   var objectImage = new Konva.Image({
     width: 100,
-    height: 100
+    height: 100,
+    type: type
   });
 
   var objectImageGroup = new Konva.Group({
     x: 100,
     y: 100,
+    type: type,
     draggable: true
   });
   objectImageGroup.add(objectImage);
   layer.add(objectImageGroup);
 
-  passParams(100, 100, null);
+  passParams(100, 100, type);
 
   addAnchor(objectImageGroup, 0, 0, 'topLeft');
   addAnchor(objectImageGroup, 100, 0, 'topRight');
@@ -147,21 +153,9 @@ function createNewImage(type) {
     layer.draw();
   };
 
-  if (type === 'Elephant') {
-    img.src = 'images/elephant.svg';
-  } else if (type === 'Tree') {
-    img.src = 'images/tree.svg';
-  } else if (type === 'Sky') {
-    img.src = 'images/sky.svg';
-  } else if (type === 'Water') {
-    img.src = 'images/water.svg';
-  } else if (type === 'Mountain') {
-    img.src = 'images/mountain.svg';
-  } else if (type === 'Ground') {
-    img.src = 'images/ground.svg';
-  } else if (type === 'Fish') {
-    img.src = 'images/fish.svg';
-  }
+  objectImage.on("click", function(){
+    passParams(objectImage.width(), objectImage.height(), type);
+  });
 }
 
 function downloadURI(uri, name) {
