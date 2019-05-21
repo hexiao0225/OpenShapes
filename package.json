@@ -20,7 +20,8 @@
     "fs": "^0.0.1-security",
     "requirejs": "^2.3.6",
     "express": "^4.16.4",
-    "browserify": "^16.2.3"
+    "browserify": "^16.2.3",
+    "image-size": "^0.7.4"
   },
   "devDependencies": {}
 }
