@@ -1,4 +1,5 @@
 var fs = require("fs");
+var sizeOf = require('image-size');
 var path = "./images/";
 
 exports.matchImage = function(dimRatio, type){
