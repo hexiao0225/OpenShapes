@@ -21,4 +21,12 @@ function initMenu(){
         obj.innerHTML = templates[i].charAt(0).toUpperCase() + templates[i].slice(1);
         $("#vertical-menu").append(obj);
     };
+
+    var menu = document.querySelector("#vertical-menu");
+    var btns = menu.getElementsByTagName('a');
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener("click", function() {
+        createNewImage(this.innerHTML);
+      });
+    }
 };

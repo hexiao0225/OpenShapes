@@ -35,8 +35,27 @@ document.getElementById('save').addEventListener(
   false
 );
 
+function passParams(width, height, template){
+    $.ajax({
+      url: "/ImageMatch",
+      type: "get", //send it through get method
+      data: {
+        Width: width,
+        Height: height,
+        Image: template
+      },
+      success: function(response) {
+        //Do Something
+      },
+      error: function(xhr) {
+        //Do Something to handle error
+      }
+    });
+}
+
 function update(activeAnchor) {
   var group = activeAnchor.getParent();
+  console.log(group.type)
 
   var topLeft = group.get('.topLeft')[0];
   var topRight = group.get('.topRight')[0];
@@ -102,9 +121,9 @@ function addAnchor(group, x, y, name) {
   });
 
   anchor.on('mouseup', function(){
-    var tempGroup = anchor.getParent();
+    var tempGroup = this.getParent();
     var image = tempGroup.get('Image')[0];
-    passParams(image.width(), image.height(), image.type);
+    passParams(image.width(), image.height(), tempGroup.getAttr("template"));
   })
 
   group.add(anchor);
@@ -126,16 +145,16 @@ function createNewImage(type) {
   var objectImage = new Konva.Image({
     width: 100,
     height: 100,
-    type: type
   });
 
   var objectImageGroup = new Konva.Group({
     x: 100,
     y: 100,
-    type: type,
     draggable: true
   });
+
   objectImageGroup.add(objectImage);
+  objectImageGroup.setAttr("template", type);
   layer.add(objectImageGroup);
 
   passParams(100, 100, type);
@@ -145,7 +164,6 @@ function createNewImage(type) {
   addAnchor(objectImageGroup, 100, 100, 'bottomRight');
   addAnchor(objectImageGroup, 0, 100, 'bottomLeft');
 
-  console.log(objectImageGroup.getLayer());
 
   var img = new Image();
   img.onload = function() {
@@ -153,9 +171,26 @@ function createNewImage(type) {
     layer.draw();
   };
 
-  objectImage.on("click", function(){
-    passParams(objectImage.width(), objectImage.height(), type);
+  objectImageGroup.on("click", function(){
+    var image = this.get('Image')[0];
+    passParams(image.width(), image.height(), this.getAttr("template"));
   });
+
+  if (type === 'Person') {
+    img.src = 'shape-database/001/000000000036_01.png';
+  } else if (type === 'Tree') {
+    img.src = 'images/tree.svg';
+  } else if (type === 'Sky') {
+    img.src = 'images/sky.svg';
+  } else if (type === 'Water') {
+    img.src = 'images/water.svg';
+  } else if (type === 'Mountain') {
+    img.src = 'images/mountain.svg';
+  } else if (type === 'Ground') {
+    img.src = 'images/ground.svg';
+  } else if (type === 'Fish') {
+    img.src = 'images/fish.svg';
+  }
 }
 
 function downloadURI(uri, name) {
