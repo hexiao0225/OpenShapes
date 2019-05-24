@@ -177,7 +177,7 @@ function createNewImage(type) {
   });
 
   if (type === 'Person') {
-    img.src = 'shape-database/001/000000000036_01.png';
+    img.src = 'shape-database/Person/000000000036_01.svg';
   } else if (type === 'Tree') {
     img.src = 'images/tree.svg';
   } else if (type === 'Sky') {

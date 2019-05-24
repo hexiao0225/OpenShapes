@@ -1,5 +1,6 @@
 var express = require('express');
 var fs = require('fs');
+var glob = require('glob')
 var http = require('http');
 var sizeOf = require('image-size');
 var imageMatch = require('./js/imageMatch.js');
