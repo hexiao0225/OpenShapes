@@ -13,8 +13,9 @@ var port = process.env.PORT || 3000;
 app.get('/ImageMatch', function(req, res){
   console.log("type:", req.query.Image);
   console.log("dims:", req.query.Width / req.query.Height)
-  imageMatch.matchImage(req.query.Width / req.query.Height, req.query.Image);
-  res.end();
+  var imageList = imageMatch.matchImage(req.query.Width / req.query.Height, req.query.Image);
+  //console.log(imageList);
+  res.send(imageList);
 });
 
 const server = http.createServer(app)

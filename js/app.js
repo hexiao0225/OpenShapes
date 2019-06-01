@@ -1,9 +1,7 @@
 var width = window.innerWidth;
 var height = window.innerHeight;
 
-var currSelType = null;
-var currSelWidth = null;
-var currSelHeight = null;
+var currGroup = null;
 
 var stage = new Konva.Stage({
   stroke: 'grey',
@@ -35,7 +33,40 @@ document.getElementById('save').addEventListener(
   false
 );
 
-function passParams(width, height, template){
+function imageShow(imageList, group){
+  $("#horizontal-menu").html("");
+  var objectImage = group.get('Image')[0];
+  var img = new Image();
+  img.onload = function() {
+    objectImage.image(img);
+    layer.draw();
+  };
+  img.src = imageList[0];
+  var i = 0;
+  while(i < 10 || i == imageList.length){
+    var obj = document.createElement("img");
+    obj.src = imageList[i];
+    $("#horizontal-menu").append(obj);
+    i++;
+  }
+  var menu = document.querySelector("#horizontal-menu");
+  var btns = menu.getElementsByTagName('img');
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function() {
+      var objectImage = currGroup.get('Image')[0];
+      var img = new Image();
+      img.onload = function() {
+        objectImage.image(img);
+        layer.draw();
+      };
+      img.src = this.src;
+    });
+  }
+}
+
+
+
+function passParams(width, height, template, group){
     $.ajax({
       url: "/ImageMatch",
       type: "get", //send it through get method
@@ -45,7 +76,8 @@ function passParams(width, height, template){
         Image: template
       },
       success: function(response) {
-        //Do Something
+        currGroup = group;
+        imageShow(response, group);
       },
       error: function(xhr) {
         //Do Something to handle error
@@ -55,7 +87,6 @@ function passParams(width, height, template){
 
 function update(activeAnchor) {
   var group = activeAnchor.getParent();
-  console.log(group.type)
 
   var topLeft = group.get('.topLeft')[0];
   var topRight = group.get('.topRight')[0];
@@ -123,7 +154,7 @@ function addAnchor(group, x, y, name) {
   anchor.on('mouseup', function(){
     var tempGroup = this.getParent();
     var image = tempGroup.get('Image')[0];
-    passParams(image.width(), image.height(), tempGroup.getAttr("template"));
+    passParams(image.width(), image.height(), tempGroup.getAttr("template"), tempGroup);
   })
 
   group.add(anchor);
@@ -157,7 +188,8 @@ function createNewImage(type) {
   objectImageGroup.setAttr("template", type);
   layer.add(objectImageGroup);
 
-  passParams(100, 100, type);
+  passParams(100, 100, type, objectImageGroup);
+  
 
   addAnchor(objectImageGroup, 0, 0, 'topLeft');
   addAnchor(objectImageGroup, 100, 0, 'topRight');
@@ -173,24 +205,8 @@ function createNewImage(type) {
 
   objectImageGroup.on("click", function(){
     var image = this.get('Image')[0];
-    passParams(image.width(), image.height(), this.getAttr("template"));
+    passParams(image.width(), image.height(), this.getAttr("template"), this);
   });
-
-  if (type === 'Person') {
-    img.src = 'shape-database/Person/000000000036_01.svg';
-  } else if (type === 'Tree') {
-    img.src = 'images/tree.svg';
-  } else if (type === 'Sky') {
-    img.src = 'images/sky.svg';
-  } else if (type === 'Water') {
-    img.src = 'images/water.svg';
-  } else if (type === 'Mountain') {
-    img.src = 'images/mountain.svg';
-  } else if (type === 'Ground') {
-    img.src = 'images/ground.svg';
-  } else if (type === 'Fish') {
-    img.src = 'images/fish.svg';
-  }
 }
 
 function downloadURI(uri, name) {
